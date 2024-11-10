@@ -1,0 +1,44 @@
+import random
+
+WORDS = ("Materer", "Paterer", "Glaterer", "Mlaterer", "Slaterer")
+random_word = random.choice(WORDS).lower()
+word_letters = []
+
+for letter in random_word:
+    word_letters.append(letter)
+
+word_letters = set(word_letters)
+#Convert the list of letters to a set that way no duplicate letters happen
+print(random_word)
+mistakes = 0
+correct_guesses = 0
+guessed_correctly = []
+guessed_wrong = []
+
+while mistakes < 7:
+    guess = input("What letter we thinking?\nEnter here: ")
+    if guess in word_letters:
+        correct_guesses += 1
+        word_letters.remove(guess)
+        guessed_correctly.append(guess)
+        print(f"The word contains the letter {guess}!")
+
+    else:
+        mistakes += 1
+        print(f"The word does not contain the letter {guess}!")
+    if mistakes < 7:
+        #Make sure it doesnt print guessed after mistakes reaches 7
+        print(f"\n__________________________")
+        if guessed_correctly:
+            print(f"Correct guesses -> {guessed_correctly}")
+        if guessed_wrong:
+            print(f"Wrong guesses -> {guessed_wrong}")
+
+if mistakes >= 7:
+    print("*********************************")
+    print(f"You lost! The word was: {random_word}")
+    print("*********************************")
+else:
+    print("*********************************")
+    print("You guessed the word correctly!")
+    print("*********************************")
