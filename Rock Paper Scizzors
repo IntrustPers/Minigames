@@ -1,0 +1,26 @@
+import random
+
+options = ["R", "P", "S"]
+
+user = input("Choose rock paper or scizzors (R,P,S): ").upper()
+
+ai = random.choice(options)
+
+def star_line():
+    print("*************************")
+star_line()
+print(f"You chose: {user}")
+star_line()
+print(f"The AI chose: {ai}")
+star_line()
+if user == ai:
+    print("You drew!")
+elif user == "R" and ai == "S":
+    print("You win!")
+elif user == "S" and ai == "P":
+    print("You win!")
+elif user == "P" and ai == "R":
+    print("You win!")
+else:
+    print("You lose!")
+
