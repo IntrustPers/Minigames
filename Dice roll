@@ -1,0 +1,27 @@
+import random
+
+dice = ["     \n  .  \n     ",  # Num: 1, Index: 0
+        ".    \n     \n    .",  # Num: 2, Index: 1
+        "    .\n  .  \n.    ",  # Num: 3, Index: 2
+        ".   .\n     \n.   .",  # Num: 4, Index: 3
+        ".   .\n  .  \n.   .",  # Num: 5, Index: 4
+        ".   .\n.   .\n.   .",  # Num: 6, Index: 5
+        ]
+
+def dice_roll():
+    x = 0
+    for x in range(2):
+        if x != 0:
+            random_value = random.randint(1, 6)
+            print(random_value)
+            print(dice[random_value - 1])
+        else:
+            random_value = random.randint(1, 6)
+            print(random_value)
+            print(dice[random_value - 1])
+            print("-----")
+            x += 1
+
+
+dice_roll()
+
