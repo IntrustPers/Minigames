@@ -1,0 +1,26 @@
+import random
+
+def star_line():
+    print("********************")
+
+user = 0
+options = [1,2,3,4,5,6,7,8,9,10]
+while user not in options:
+    user = int(input("Enter a number from 1-10: "))
+ai = random.randint(1, 10)
+
+print("----------------------------")
+print()
+
+if user == ai:
+    star_line()
+    print("*    You lose!     *")
+    star_line()
+else:
+    star_line()
+    print("*     You win!     *")
+    star_line()
+
+print()
+print(f"You chose the number: {user}")
+print(f"\nThe AI chose the number: {ai}")
