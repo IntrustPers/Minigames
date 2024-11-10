@@ -1,0 +1,38 @@
+import random
+
+#The idea here was to recreate TicTacToe, the first thing that came to mind was to make a grid
+#and than place either an X(for user) or O(or ai) in the grid to show the game visually
+
+
+def grid():
+    print(" X | O | X ")
+    print("-----------")
+    print(" O | X | O ")
+    print("-----------")
+    print(" X | O | X ")
+
+print(" a1 | a2 | a3 ")
+print("--------------")
+print(" b1 | b2 | b3 ")
+print("--------------")
+print(" c1 | c2 | c3 ")
+
+
+options = ["a1","a2","a3","b1","b2","b3","c1","c2","c3"]
+
+while options:
+    user = input("Enter your move: ")
+    if user in options:
+        print(user)
+        options.remove(user)
+        if options:
+            ai = random.choice(options)
+            options.remove(ai)
+            print(ai)
+        grid()
+    else:
+        print("Invalid move")
+
+
+
+
