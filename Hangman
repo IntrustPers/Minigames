@@ -1,6 +1,6 @@
 import random
 
-WORDS = ("Materer", "Paterer", "Glaterer", "Mlaterer", "Slaterer")
+WORDS = ("jazz", "popcorn", "watermelon", "chicken", "glue")
 random_word = random.choice(WORDS).lower()
 word_letters = []
 
@@ -9,11 +9,13 @@ for letter in random_word:
 
 word_letters = set(word_letters)
 #Convert the list of letters to a set that way no duplicate letters happen
-print(random_word)
 mistakes = 0
 correct_guesses = 0
 guessed_correctly = []
 guessed_wrong = []
+hangman_output = len(random_word) * '_'
+print(hangman_output)
+print(random_word)
 
 while mistakes < 7:
     guess = input("What letter we thinking?\nEnter here: ")
@@ -21,18 +23,21 @@ while mistakes < 7:
         correct_guesses += 1
         word_letters.remove(guess)
         guessed_correctly.append(guess)
+        idx = 0
+        for slovo in random_word:
+            if guess == random_word[idx]:
+                print(f"{slovo} passed test")
+                output = hangman_output[idx].replace("_",slovo)
+                print(output)
+                idx += 1
+        print(output)
         print(f"The word contains the letter {guess}!")
+
 
     else:
         mistakes += 1
+        guessed_wrong.append(guess)
         print(f"The word does not contain the letter {guess}!")
-    if mistakes < 7:
-        #Make sure it doesnt print guessed after mistakes reaches 7
-        print(f"\n__________________________")
-        if guessed_correctly:
-            print(f"Correct guesses -> {guessed_correctly}")
-        if guessed_wrong:
-            print(f"Wrong guesses -> {guessed_wrong}")
 
 if mistakes >= 7:
     print("*********************************")
